@@ -20,7 +20,3 @@ def index():
 #         'band': request,
 #         'instrument': instrument
 #     }
-
-
-def required_functionality():
-    return {'message': 'learning fastAPI'}

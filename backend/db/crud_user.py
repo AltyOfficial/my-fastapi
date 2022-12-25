@@ -27,6 +27,11 @@ def read_user(id: int, db: Session):
     return user
 
 
+def read_user_by_username(username: str, db: Session):
+    user = db.query(UserModel).filter(UserModel.username==username).first()
+    return user
+
+
 def update_user(id: int, request: UserSchema, db: Session):
     user = db.query(UserModel).filter(UserModel.id==id)
     user.update(dict(request))

@@ -3,7 +3,7 @@ from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from db import models, database
-from routers import articles, blogs, users, products
+from routers import articles, auth, blogs, users, products
 from utils.exceptions import HelloException
 
 
@@ -34,6 +34,7 @@ app.add_middleware(
 )
 
 
+app.include_router(auth.router)
 app.include_router(articles.router)
 app.include_router(blogs.router)
 app.include_router(products.router)

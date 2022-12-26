@@ -1,9 +1,10 @@
 from fastapi import FastAPI, Request, status
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 from db import models, database
-from routers import articles, auth, blogs, users, products
+from routers import articles, auth, blogs, users, products, file
 from utils.exceptions import HelloException
 
 
@@ -34,8 +35,12 @@ app.add_middleware(
 )
 
 
+app.mount('/media/', StaticFiles(directory='media/'), name='media')
+
+
 app.include_router(auth.router)
 app.include_router(articles.router)
 app.include_router(blogs.router)
+app.include_router(file.router)
 app.include_router(products.router)
 app.include_router(users.router)

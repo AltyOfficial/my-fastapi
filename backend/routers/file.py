@@ -32,6 +32,7 @@ def get_upload_file(upload_file: UploadFile = File(...)):
     }
 
 
+#Returning a File
 @router.get('/download/{name}/', response_class=FileResponse)
 def download_file(name: str):
     path = f'media/images/{name}.png'

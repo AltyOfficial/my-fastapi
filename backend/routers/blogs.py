@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Body
 
 from db import schemas
+from routers.logger import log
 
 
 router = APIRouter(
@@ -9,8 +10,10 @@ router = APIRouter(
 )
 
 
+# Logging
 @router.get('/')
 def index():
+    log('my-fastapi', 'successed')
     return {'detail': 'hello world!'}
 
 

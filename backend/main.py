@@ -25,15 +25,17 @@ def hello_exception_handler(request: Request, exc: HelloException):
         content={'detail': exc.title}
     )
 
-# 3 next lines - websockets examples
+# Websockets examples
 @app.get('/')
 async def get():
     return HTMLResponse(html)
 
 
+# Websocker part
 clients = []
 
 
+# Websocker part
 @app.websocket('/chat/')
 async def websocket(websocket: WebSocket):
     await websocket.accept()

@@ -50,3 +50,8 @@ class ArticleDisplaySchema(BaseModel):
     class Config():
         orm_mode = True
 
+
+class ProductSchema(BaseModel):
+    title: str
+    description: str
+    price: float

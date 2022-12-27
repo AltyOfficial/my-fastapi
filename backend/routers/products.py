@@ -1,3 +1,5 @@
+import time
+
 from fastapi import APIRouter, Depends, Header, Cookie
 from fastapi.responses import Response, HTMLResponse, PlainTextResponse
 from sqlalchemy.orm import Session
@@ -17,9 +19,16 @@ router = APIRouter(
 product_list = ['watch', 'camera', 'pc', 'console', 'phone']
 
 
+# Async await example
+async def time_consuming_functionality():
+    time.sleep(1)
+    return 'ok'
+
+
 # Cookie Example
 @router.get('/')
-def product_list_f():
+async def product_list_f():
+    await time_consuming_functionality()
     data = ' '.join(product_list)
     response = Response(content=data, media_type='text/plain')
     response.set_cookie(key='test_cookie', value='test_cookie_value')

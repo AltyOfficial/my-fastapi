@@ -1,4 +1,4 @@
-### API к учебному проекту для изучения FastAPI
+# API к учебному проекту для изучения FastAPI
 
 ## Интсрументы и технологии
 ![](https://img.shields.io/badge/python-3.11-blue)
